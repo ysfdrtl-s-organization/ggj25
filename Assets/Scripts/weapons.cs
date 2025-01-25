@@ -43,7 +43,7 @@ public class weapons : MonoBehaviour
                 babýlgun.SetActive(false);
                 if (Input.GetKeyDown(KeyCode.Space) && mcooldown < 0f)
                 {
-                    mizrak.transform.position += new Vector3(pm.isRigth/2f, 0f, 0f);
+                    mizrak.transform.position += new Vector3(pm.isRigth/2f, 0f, -1f);
                     Invoke("ZipkinGeri",0.5f);
                     mcooldown = 1f;
                 }

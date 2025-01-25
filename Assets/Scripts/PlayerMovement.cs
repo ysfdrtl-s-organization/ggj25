@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5f;
 
     [Header("Jump Settings")]
-    public float jumpForce = 10f;
+    public float jumpForce = 7f;
     public LayerMask groundLayer;
     public Transform groundCheck;
     public float groundCheckRadius = 0.2f;
@@ -63,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
             coolUp = 2f;
             head.transform.localScale = new Vector3(2, 2, 2);
             rb.gravityScale = -0.125f;
-            Invoke("notFly", 4);
+            Invoke("notFly", 3.5f);
         }
 
         if (!isGrounded)

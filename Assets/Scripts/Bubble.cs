@@ -14,7 +14,7 @@ public class Bubble : MonoBehaviour
 	}
 	private void FixedUpdate()
 	{
-		if (gameObject.transform.localScale.x < 2 && gameObject.transform.localScale.y < 2)
+		if (gameObject.transform.localScale.x < 0.4f && gameObject.transform.localScale.y < 0.4f)
 		{
 			gameObject.transform.localScale *= 1.08f;
 		}
@@ -33,12 +33,11 @@ public class Bubble : MonoBehaviour
 	}
 	private void OnTriggerEnter2D(Collider2D other)
 	{
-		Debug.Log("hevele huvele");
+		
 		if (other.gameObject.tag == "enemy")
 		{
 			enemy = other.gameObject;
 			isfly = true;
-			Debug.Log(enemy.name + "seçildi");
 		}
 
 	}

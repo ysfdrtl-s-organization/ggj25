@@ -21,7 +21,7 @@ public class playerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "enemy" || collision.tag == "tuzak")
+        if (collision.tag == "enemy" || collision.tag == "tuzak"|| collision.tag == "Arm")
         {
             Health--;
             if (Health == 2)
@@ -57,7 +57,6 @@ public class playerController : MonoBehaviour
                 head.SetActive(false);
                 paluk3.SetActive(false);
                 gameoverText.text = "GAME OVER";
-                Time.timeScale = 0.0f;
             }
         }
 

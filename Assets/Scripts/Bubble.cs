@@ -33,10 +33,11 @@ public class Bubble : MonoBehaviour
 	}
 	private void OnTriggerEnter2D(Collider2D other)
 	{
-		
+
 		if (other.gameObject.tag == "enemy")
 		{
 			enemy = other.gameObject;
+			Destroy(enemy, 3f);
 			isfly = true;
 		}
 

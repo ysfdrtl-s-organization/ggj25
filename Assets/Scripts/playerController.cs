@@ -15,7 +15,7 @@ public class playerController : MonoBehaviour
     private Rigidbody2D rb;
     void Start()
     {
-        gameoverText.text = null;
+        //gameoverText.text = null;
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -36,7 +36,7 @@ public class playerController : MonoBehaviour
             {
                 head.SetActive(false);
                 paluk3.SetActive(false);
-                gameoverText.text = "GAME OVER";
+                //gameoverText.text = "GAME OVER";
                 Time.timeScale = 0.0f;
             }
         }
@@ -56,7 +56,12 @@ public class playerController : MonoBehaviour
             {
                 head.SetActive(false);
                 paluk3.SetActive(false);
+<<<<<<< HEAD
                 gameoverText.text = "GAME OVER";
+=======
+                //gameoverText.text = "GAME OVER";
+                Time.timeScale = 0.0f;
+>>>>>>> 275988174e6fee20b0759c3dc4b1c78d5bb46ad2
             }
         }
 

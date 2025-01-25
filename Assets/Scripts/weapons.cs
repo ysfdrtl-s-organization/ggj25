@@ -25,6 +25,7 @@ public class weapons : MonoBehaviour
 		babýlgun.SetActive(false);
 	}
 
+<<<<<<< HEAD
 	private void Update()
 	{
 		bcooldown -= Time.deltaTime;
@@ -63,6 +64,46 @@ public class weapons : MonoBehaviour
 				break;
 		}
 	}
+=======
+    private void Update()
+    {
+        bcooldown -= Time.deltaTime;
+        mcooldown -= Time.deltaTime;
+        //iki tip silah var 
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            s = 1 - s;
+            Debug.Log(s);
+        }
+        switch (s)
+        {
+            case 0:
+                //1 zýpkýn ama mýzrak
+                mizrak.SetActive(true);
+                babýlgun.SetActive(false);
+                if (Input.GetKeyDown(KeyCode.Space) && mcooldown < 0f)
+                {
+                    mizrak.transform.position += new Vector3(pm.isRigth/2f, 0f, -1f);
+                    Invoke("ZipkinGeri",0.5f);
+                    mcooldown = 1f;
+                }
+                break;
+            case 1:
+                //2 balon tabancasý
+                babýlgun.SetActive(true);
+                mizrak.SetActive(false);
+                if (Input.GetKeyDown(KeyCode.Space) && bcooldown < 0f)
+                {
+                    GameObject Bubble = Instantiate(BubblePre, weaponSpawn.position, weaponSpawn.rotation);
+                    Rigidbody2D rb = Bubble.GetComponent<Rigidbody2D>();
+                    rb.AddForce(new Vector2(pm.isRigth, 0f) * force, ForceMode2D.Impulse);
+                    bcooldown = 1f;
+                    Destroy(Bubble, 2f);
+                }
+                break;
+        }
+    }
+>>>>>>> 275988174e6fee20b0759c3dc4b1c78d5bb46ad2
 
 	private void ZipkinGeri()
 	{

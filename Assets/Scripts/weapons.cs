@@ -43,7 +43,7 @@ public class weapons : MonoBehaviour
 				if (Input.GetKeyDown(KeyCode.Space) && mcooldown < 0f)
 				{
 					mizrak.transform.position += new Vector3(pm.isRigth / 2f, 0f, 0f);
-					mizrak.GetComponent<Collider2D>().enabled = true;
+					mizrak.GetComponent<BoxCollider2D>().enabled = true;
 					Invoke("ZipkinGeri", 0.5f);
 					mcooldown = 1f;
 				}
@@ -67,6 +67,6 @@ public class weapons : MonoBehaviour
 	private void ZipkinGeri()
 	{
 		mizrak.transform.position = weaponSpawn.position;
-		mizrak.GetComponent<Collider2D>().enabled = false;
+		mizrak.GetComponent<BoxCollider2D>().enabled = false;
 	}
 }

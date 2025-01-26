@@ -30,6 +30,7 @@ public class weapons : MonoBehaviour
 
 	private void Update()
 	{
+
 		bcooldown -= Time.deltaTime;
 		mcooldown -= Time.deltaTime;
 		ecooldown -= Time.deltaTime;
@@ -47,7 +48,7 @@ public class weapons : MonoBehaviour
 				if (Input.GetKeyDown(KeyCode.Space) && mcooldown < 0f)
 				{
 					mizrak.transform.position += new Vector3(pm.isRigth / 2f, 0f, 0f);
-					mizrak.GetComponent<BoxCollider2D>().enabled = true;
+					mizrak.GetComponent<Collider2D>().enabled = true;
 					Invoke("ZipkinGeri", 0.5f);
 					mcooldown = 1f;
 				}
@@ -68,16 +69,17 @@ public class weapons : MonoBehaviour
 		}
         if (Input.GetKeyDown(KeyCode.R) && ecooldown < 0f)
         {
+			ebabýl.transform.position = weaponSpawn.position;
 			ebabýl.SetActive(true);
 			ecooldown = 5f;
-			Invoke("KalkanKapa", 2f);
+			Invoke("KalkanKapa", 2.5f);
         }
     }
 
 	private void ZipkinGeri()
 	{
 		mizrak.transform.position = weaponSpawn.position;
-		mizrak.GetComponent<BoxCollider2D>().enabled = false;
+		mizrak.GetComponent<Collider2D>().enabled = false;
 	}
 
 	private void KalkanKapa()

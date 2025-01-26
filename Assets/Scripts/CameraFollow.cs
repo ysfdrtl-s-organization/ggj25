@@ -7,7 +7,6 @@ public class CameraFollow : MonoBehaviour
     public Transform target; // Takip edilecek karakterin Transform'u
     public Vector3 offset; // Kameranýn karaktere olan sabit mesafesi
     public float smoothSpeed = 0.125f; // Kameranýn hareket hýzýný yumuþatma oraný
-    public bool followY;
 
     void LateUpdate()
     {
@@ -18,11 +17,6 @@ public class CameraFollow : MonoBehaviour
 
             // Yumuþatýlmýþ pozisyonu hesapla
             Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
-            if (!followY)
-            {
-                smoothedPosition.y = 0f;
-            }
-            smoothedPosition.z = -10;
 
             // Kamerayý yeni pozisyona taþý
             transform.position = smoothedPosition;

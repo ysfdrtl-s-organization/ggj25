@@ -7,6 +7,7 @@ public class weapons : MonoBehaviour
 	//zipkin prefabý eklencek 
 	public GameObject mizrak;
 	public GameObject babýlgun;
+	public GameObject ebabýl;
 	//baðlantý yapýlcak
 	public PlayerMovement pm;
 	public float force;
@@ -16,6 +17,7 @@ public class weapons : MonoBehaviour
 	public Transform weaponSpawn;
 	private float bcooldown = 0f;
 	private float mcooldown = 0f;
+	private float ecooldown = 0f;
 
 	int s = 0;
 
@@ -23,12 +25,14 @@ public class weapons : MonoBehaviour
 	{
 		mizrak.SetActive(true);
 		babýlgun.SetActive(false);
+		ebabýl.SetActive(false);
 	}
 
 	private void Update()
 	{
 		bcooldown -= Time.deltaTime;
 		mcooldown -= Time.deltaTime;
+		ecooldown -= Time.deltaTime;
 		//iki tip silah var 
 		if (Input.GetKeyDown(KeyCode.Q))
 		{
@@ -62,11 +66,22 @@ public class weapons : MonoBehaviour
 				}
 				break;
 		}
-	}
+        if (Input.GetKeyDown(KeyCode.R) && ecooldown < 0f)
+        {
+			ebabýl.SetActive(true);
+			ecooldown = 5f;
+			Invoke("KalkanKapa", 2f);
+        }
+    }
 
 	private void ZipkinGeri()
 	{
 		mizrak.transform.position = weaponSpawn.position;
 		mizrak.GetComponent<Collider2D>().enabled = false;
+	}
+
+	private void KalkanKapa()
+	{		
+		ebabýl.SetActive(false);
 	}
 }
